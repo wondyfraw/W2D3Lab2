@@ -20,7 +20,6 @@ a{
 }
 .cancel-button{
     background-color: #fff;
-    color: #dc3545;
 }
 .submit-button{
     background-color: white;
@@ -29,4 +28,26 @@ a{
 .main-container-style{
     border: 2px solid gray;
     margin-top: 4px;
+}
+
+nav ,button[type="submit"]{
+    background-color: #4682B4 !important;
+    color: white;
+}
+button{
+    color: white !important;
+    width: 120px;
+}
+button[type="reset"]{
+    background-color: #8585ad !important;
+}
+div#census-img{
+    float: right;
+}
+.footer-div{
+    margin-top: 100px;
+    background: #e6e6ff;
+}
+.foorer-span{
+    float: right;
 }

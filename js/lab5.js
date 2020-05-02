@@ -3,27 +3,39 @@
 jQuery(document).ready(function () {
 "use strict";
 
-jQuery("#productSubmitButton").on("click" , function (event) {
-        event.preventDefault();
-});
-     jQuery("#productSubmitButton").click(function onClickMe() {
+//jQuery("#censusSubmitButton").on("click" , function (event) {
+   //     event.preventDefault();
+//});
+
+    //https://www.npmjs.com/package/dateformat
+    let today = new Date();
+    today = dateFormat(today, "dddd, mmmm dS, yyyy, h:MM:ss TT");
+    jQuery("#today").text(today);
+    document.getElementById("censesForm").addEventListener("submit", formAction);
 
 
-         //let stockQnt = document.getElementById("stockQntInput").value;
-         //let name = document.getElementById("nameInput").value;
-         let productNum = $("#productNumInput").val();
-         let stockQnt = $("#stockQntInput").val();
-         let name = $("#nameInput").val();
-         let supplier = $("#supplierInput").val();
-         let unitPrice = $("#unitPriceInput").val();
-         let dateSupplied = $("#dateInput").val();
+     function formAction() {
+         //jQuery("#censusSubmitButton").click(function onClickMe() {
 
-         alert("Product Number =" + productNum + "\n" +
-             "Product Name ="+ name + "\n" +
-             "Supplier =" + supplier + "\n" +
-             "Unit Price =" + unitPrice +"\n" +
-             "Supplied Date =" + dateSupplied);
+             let censusTable = document.getElementById("censusTable");
+             censusTable.className ="table table-striped";
+             censusTable.insertRow(-1);
+             let tableRow = "<tr>";
+             tableRow +="<td>"+ $("#citizenInput").val()+"</td>";
+             tableRow += "<td>" + $("#socialSecurityNumberInput").val()+ "</td>";
+             tableRow += "<td>" + $("#fullNameInput").val()+ "</td>";
+             tableRow += "<td>" + $("#stateInput").val()+ "</td>";
+             let seniorRadios = document.getElementsByName("seniorCitizen");
+             let seniorVal;
+             if(seniorRadios[0].checked)
+                 seniorVal = seniorRadios[0].value;
+             else
+                 seniorVal = seniorRadios[1].value;
+             tableRow += "<td>" + seniorVal + "</td>";
+             tableRow +="</tr>";
+             censusTable.innerHTML += tableRow;
+         //});
+     }
 
-     })
 });
 
